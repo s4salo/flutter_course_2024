@@ -1,5 +1,5 @@
 class OSMWeather {
-  final double temp;
+  final int temp;
   final String type;
 
   const OSMWeather(this.temp, this.type);

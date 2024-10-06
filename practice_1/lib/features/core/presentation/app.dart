@@ -8,15 +8,57 @@ class App {
   App(this.repository);
 
   void run() async {
-    print('Введите город:');
-    var city = stdin.readLineSync();
+    print('Укажите режим работы:\n\t1 - по городу\n\t2 - по широте и долготе');
+    var mode = stdin.readLineSync();
+    SearchQuery query;
+    String? data;
+    String? city;
 
-    if (city == null) {
-      print('Ошибка ввода');
+    switch (mode) {
+      case '2':
+        print('Введите данные в формате: широта долгота');
+        data = stdin.readLineSync();
+        break;
+      case '1':
+        print('Введите город');
+        city = stdin.readLineSync();
+        break;
+      default:
+        print('Неверный режим. Завершение программы.');
+        return;
+    }
+
+    if (data != null) {
+      var coords = data.split(' ');
+      if (coords.length == 2) {
+        try {
+          double lat = double.parse(coords[0]);
+          double lon = double.parse(coords[1]);
+          query = SearchQueryViaCords(lat, lon);
+        } catch (e) {
+          print('Ошибка при парсинге координат. Завершение программы.');
+          return;
+        }
+      } else {
+        print('Неверный формат координат. Завершение программы.');
+        return;
+      }
+    } else if (city != null) {
+      query = SearchQueryViaCity(city);
+    } else {
+      print('Не указаны данные для поиска. Завершение программы.');
       return;
     }
 
-    var resp = await repository.getWeather(SearchQuery(city));
-    print('Погода в городе $city: ${resp.temp-273} по Цельсию, тип: ${resp.type}');
+    try {
+      var resp = await repository.getWeather(query);
+      if (query is SearchQueryViaCity) {
+        print('Погода в городе ${(query as SearchQueryViaCity).city}: ${resp.temp}°C, тип: ${resp.type}');
+      } else if (query is SearchQueryViaCords) {
+        print('Погода по координатам (${(query as SearchQueryViaCords).lat}, ${query.long}): ${resp.temp}°C, тип: ${resp.type}');
+      }
+    } catch (e) {
+      print('Произошла ошибка при получении данных о погоде: $e');
+    }
   }
 }

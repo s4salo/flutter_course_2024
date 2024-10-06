@@ -1,5 +1,5 @@
 class SearchResponse {
-  final int temp;
+  final double temp;
   final WeatherType type;
 
   const SearchResponse(this.temp, this.type);

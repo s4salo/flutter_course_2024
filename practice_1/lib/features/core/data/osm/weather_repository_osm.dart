@@ -10,20 +10,25 @@ class WeatherRepositoryOSM implements WeatherRepository {
 
   @override
   Future<SearchResponse> getWeather(SearchQuery query) async {
-    var response = await _api.getWeather(query.city);
-    return SearchResponse(response.temp.toInt(), _weatherType(response.type));
+    if (query is SearchQueryViaCity) {
+      var response = await _api.getWeather(query.city);
+      return SearchResponse(
+          response.temp.toDouble(), _weatherType(response.type));
+    } else {
+      throw UnimplementedError();
+    }
   }
-}
 
-WeatherType _weatherType(String type) {
-  switch (type) {
-    case 'Clouds':
-      return WeatherType.cloudy;
-    case 'Clear':
-      return WeatherType.clear;
-    case 'Rain':
-      return WeatherType.rain;
-    default:
-      return WeatherType.other;
+  WeatherType _weatherType(String type) {
+    switch (type) {
+      case 'Clouds':
+        return WeatherType.cloudy;
+      case 'Clear':
+        return WeatherType.clear;
+      case 'Rain':
+        return WeatherType.rain;
+      default:
+        return WeatherType.other;
+    }
   }
 }
