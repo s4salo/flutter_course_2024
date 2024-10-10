@@ -10,5 +10,11 @@ This application uses [weatherbit.io](https://www.weatherbit.io/account/dashboar
   
 ![image](https://github.com/user-attachments/assets/bf1b2743-1ca8-4e3d-a1b8-56fc16d9721a)
 
+## Dependency Graph
+
+![image](https://github.com/user-attachments/assets/b59d6d31-d93e-47d2-8f3c-c90615f79367)
+
+
+
 
 
