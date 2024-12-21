@@ -1,16 +1,22 @@
-# practice_4
+# Приложение Мои заметки
 
-A new Flutter project.
+## Описание
+Приложение позволяет пользователю создавать, просматривать, редактировать и удалять заметки. Управление состоянием реализовано с использованием **Provider**. Была использована архитектура MVVM.
 
-## Getting Started
+## Использованные виджеты и функции
+- StatelessWidget и StatefulWidget
+- ChangeNotifier и ChangeNotifierProvider
+- Consumer и Provider.of
+- TextFormField, TextField
 
-This project is a starting point for a Flutter application.
+## Видео демонстрация
 
-A few resources to get you started if this is your first Flutter project:
+https://github.com/user-attachments/assets/9ff48b44-6fd1-4ab1-a78a-ba28bdc40fc1
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Использование
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Для просмотра списка заметок откройте главный экран.
+- Нажмите на заметку, чтобы открыть ее для редактирования или просмотра.
+- Используйте кнопку "+" для создания новой заметки.
+- В редакторе заметки можно вводить и редактировать название и текст заметки.
+- Для удаления заметки нажмите кнопку "Удалить" в редакторе заметки.
