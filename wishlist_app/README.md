@@ -10,3 +10,6 @@ Wishlist - приложение для хранения ваших "хотело
 
 https://github.com/user-attachments/assets/259b5c8d-45c2-41b5-9eb6-9c66f264e999
 
+## Граф зависимостей
+
+![dependencies](https://github.com/user-attachments/assets/095b92d3-59eb-4f8c-b448-4b3016bd0104)
