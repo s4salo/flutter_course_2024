@@ -1,0 +1,46 @@
+digraph "" {
+  graph [style=rounded fontname="Arial Black" fontsize=13 penwidth=2.6];
+  node [shape=rect style="filled,rounded" fontname=Arial fontsize=15 fillcolor=Lavender penwidth=1.3];
+  edge [penwidth=1.3];
+  "/main.dart" [label="main"];
+  "/models/note.dart" [label="note"];
+  "/viewmodels/notes_list_view_model.dart" [label="notes_list_view_model"];
+  "/viewmodels/note_view_model.dart" [label="note_view_model"];
+  "/views/notes_list_view.dart" [label="notes_list_view"];
+  "/views/note_view.dart" [label="note_view"];
+  "/widgets/note_card.dart" [label="note_card"];
+  subgraph "cluster~" {
+    label="lib";
+    "/main.dart";
+    subgraph "cluster~/models" {
+      label="models";
+      "/models/note.dart";
+    }
+    subgraph "cluster~/viewmodels" {
+      label="viewmodels";
+      "/viewmodels/notes_list_view_model.dart";
+      "/viewmodels/note_view_model.dart";
+    }
+    subgraph "cluster~/views" {
+      label="views";
+      "/views/notes_list_view.dart";
+      "/views/note_view.dart";
+    }
+    subgraph "cluster~/widgets" {
+      label="widgets";
+      "/widgets/note_card.dart";
+    }
+  }
+  "/main.dart" -> "/viewmodels/notes_list_view_model.dart";
+  "/main.dart" -> "/views/notes_list_view.dart";
+  "/viewmodels/notes_list_view_model.dart" -> "/viewmodels/note_view_model.dart";
+  "/viewmodels/note_view_model.dart" -> "/models/note.dart";
+  "/views/notes_list_view.dart" -> "/viewmodels/note_view_model.dart";
+  "/views/notes_list_view.dart" -> "/viewmodels/notes_list_view_model.dart";
+  "/views/notes_list_view.dart" -> "/widgets/note_card.dart";
+  "/views/notes_list_view.dart" -> "/views/note_view.dart";
+  "/views/note_view.dart" -> "/viewmodels/note_view_model.dart";
+  "/views/note_view.dart" -> "/viewmodels/notes_list_view_model.dart";
+  "/views/note_view.dart" -> "/models/note.dart";
+  "/widgets/note_card.dart" -> "/viewmodels/note_view_model.dart";
+}
