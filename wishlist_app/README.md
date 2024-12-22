@@ -1,16 +1,15 @@
-# wishlist_app
+# Wishlist
 
-A new Flutter project.
+Wishlist - приложение для хранения ваших "хотелок". Было реализовано с помощью provider, архитектурного паттерна MVVM.
 
-## Getting Started
+## Описание
 
-This project is a starting point for a Flutter application.
+Ваши "хотелки" хранятся в виде интерактивных карточек с изображением и названием товара. Вы можете создавать карточки, прикреплять желаемое изображение, указывать ссылку на товар и удалять карточку.
 
-A few resources to get you started if this is your first Flutter project:
+## Видео-демонстрация
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+https://github.com/user-attachments/assets/259b5c8d-45c2-41b5-9eb6-9c66f264e999
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Граф зависимостей
+
+![dependencies](https://github.com/user-attachments/assets/095b92d3-59eb-4f8c-b448-4b3016bd0104)
